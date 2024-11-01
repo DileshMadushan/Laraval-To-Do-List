@@ -23,11 +23,23 @@ class TaskController extends Controller
         $list = Tasks::where ('user_id',Auth::id())->get();
         return view ('tasklist',compact('list'));
     }
-    public function deletetask($id){
+    public function deletetask($id){  
         $id = request()->id;    
         Tasks::where('id',$id)->delete();
         return redirect()->back();
 
     }
-    
+    public function edit($id){
+        // dd($id);
+        $id = Tasks::find($id);
+      
+        return view ('edittask',compact('id'));
+    }
+    public function update(Request $request , $id){
+        $task =Tasks::find($id);
+        $task->title = $request->title;
+        $task->description = $request->Desc;
+        $task->save();
+        return redirect()->route('tasklist');
+    }
 }

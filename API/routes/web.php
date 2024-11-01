@@ -21,4 +21,8 @@ Route::get('AddTask', [TaskController::class, 'addtask'])->name('task');
 Route::post('AddTask', [TaskController::class, 'savetask'])->name('savetask');
 Route::get('tasklist', [TaskController::class, 'tasklist'])->name('tasklist');
 Route::get('tasklist/{id}', [TaskController::class, 'deletetask'])->name('deletetask');
+Route::get('edittask/{id}', [TaskController::class, 'edit'])->name('edittask');
+Route::put('edittask/{id}', [TaskController::class, 'update'])->name('updatetask');
+
+
 require __DIR__.'/auth.php';

@@ -31,7 +31,7 @@
     <td>complete</td>
     @endif
     <td>
-    <button class="bg-yellow-800 text-white font-bold py-2 px-4 rounded">Edit</button>
+    <a href="{{route('edittask',$task->id)}}" class="bg-yellow-800 text-white font-bold py-2 px-4 rounded">Edit</a>
 
         <a href="{{route('deletetask',$task->id)}}" class="bg-red-800 text-white font-bold py-2 px-4 rounded">Delete</a>
     </td>
