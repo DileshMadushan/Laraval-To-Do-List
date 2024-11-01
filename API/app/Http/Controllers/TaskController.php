@@ -39,6 +39,13 @@ class TaskController extends Controller
         $task =Tasks::find($id);
         $task->title = $request->title;
         $task->description = $request->Desc;
+        $task->completed=$request->status;
+        $task->save();
+        return redirect()->route('tasklist');
+    }
+    public function updatestatus(Request $request){
+        $task =Tasks::find($request->id);
+        $task-> completed = 1;
         $task->save();
         return redirect()->route('tasklist');
     }

@@ -23,6 +23,6 @@ Route::get('tasklist', [TaskController::class, 'tasklist'])->name('tasklist');
 Route::get('tasklist/{id}', [TaskController::class, 'deletetask'])->name('deletetask');
 Route::get('edittask/{id}', [TaskController::class, 'edit'])->name('edittask');
 Route::put('edittask/{id}', [TaskController::class, 'update'])->name('updatetask');
-
+Route::put('taskcomplete', [TaskController::class, 'updatestatus'])->name('updatestatus');
 
 require __DIR__.'/auth.php';

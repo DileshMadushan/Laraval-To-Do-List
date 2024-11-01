@@ -32,8 +32,17 @@
     @endif
     <td>
     <a href="{{route('edittask',$task->id)}}" class="bg-yellow-800 text-white font-bold py-2 px-4 rounded">Edit</a>
+    <a href="{{route('deletetask',$task->id)}}" class="bg-red-800 text-white font-bold py-2 px-4 rounded">Delete</a>
 
-        <a href="{{route('deletetask',$task->id)}}" class="bg-red-800 text-white font-bold py-2 px-4 rounded">Delete</a>
+    @if ($task->completed == 0)
+        <form action="{{route('updatestatus')}}" method= "POST">
+            @csrf
+            @method('PUT')
+            <input type="hidden" value="{{$task->id}}" name="id">
+
+            <button type="submit" class="bg-green-800 text-white font-bold py-2 px-4 rounded">Complete</button>
+        </form>
+        @endif
     </td>
 </tr>
 @endforeach
